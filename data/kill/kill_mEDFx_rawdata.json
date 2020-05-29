@@ -1,0 +1,529 @@
+{
+  "name": "kill",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "mEDFx",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${msg.guild.id}blacklist",
+      "defaultVal": "false",
+      "storage": "1",
+      "varName2": "blacklisted",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "blacklisted",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry ${member}, you're currently blacklisted from using this command!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "name": "Save Variable"
+    },
+    {
+      "condition": "1",
+      "comparison": "0",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "34",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You must mention a user in order to use this command.\nUsage: ${server && server.tag || Files.data.settings.tag}kill @user",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "9",
+      "varName2": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check If Member"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Please don't try to kill yourself...",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "0",
+      "varName": "",
+      "info": "3",
+      "storage": "1",
+      "varName2": "mentname",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "min": "1",
+      "max": "22",
+      "name": "Generate Random Number"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "2",
+      "value": "1",
+      "iftrue": "0",
+      "iftrueVal": "10",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} jumped off a building before ${member.displayName} could kill them. 🏛 ",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "2",
+      "value": "2",
+      "iftrue": "0",
+      "iftrueVal": "11",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} killed ${tempVars(\"mentname\")} with a pistol! 🔫",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "2",
+      "value": "3",
+      "iftrue": "0",
+      "iftrueVal": "12",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} hulk smashes ${tempVars(\"mentname\")} into pulp. 💥",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "2",
+      "value": "4",
+      "iftrue": "0",
+      "iftrueVal": "13",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} died from eating a cactus. 🌵",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "2",
+      "value": "5",
+      "iftrue": "0",
+      "iftrueVal": "14",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} killed ${tempVars(\"mentname\")} by drowning them in a tub of hot chocolate. 🛁 🍫 ",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "2",
+      "value": "6",
+      "iftrue": "0",
+      "iftrueVal": "15",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} killed ${tempVars(\"mentname\")} by turning back time and giving them a ticket to the Titanic. 🚢",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "7",
+      "iftrue": "0",
+      "iftrueVal": "16",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} slips bleach into ${tempVars(\"mentname\")}'s drink. 🍹",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "8",
+      "iftrue": "0",
+      "iftrueVal": "17",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} dies due to ${member.displayName} mentioning them. 💬 ",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "9",
+      "iftrue": "0",
+      "iftrueVal": "18",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} dies from kissing a rattlesnake. 🐍",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "10",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} died from not forwarding the chain mail recieved from ${member.displayName}. 📧 ",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "11",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} was so swagged that ${tempVars(\"mentname\")} died due to it. #Swag",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "12",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} was charging their Samsung Galaxy Note 7... 📱",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "13",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} has been found guilty, time to execute them! ",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "14",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} feeds toothpaste-filled Oreos to ${tempVars(\"mentname\")}, who was apparently allergic to flouride. 🍪 ",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "15",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} rigged ${tempVars(\"mentname\")}'s elytra and they fell to their death.  ☠",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "16",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} gave ${tempVars(\"mentname\")} a ticket to Malaysia Airlines Flight 370... ✈",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "17",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} climbed a tree, fell down, and got ate by a rabid bunny. ",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "18",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} might have fallen down a well while looking for pennies...",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "19",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "🎵🎵 ${tempVars(\"mentname\")} got ran over by a reindeer 🎵🎵",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "20",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${member.displayName} died while waiting for ${tempVars(\"mentname\")} to die of natural causes.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "21",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} bought a tesla and could no longer afford food or water.\nBut hey! Elon Musk is richer now.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "num",
+      "comparison": "1",
+      "value": "22",
+      "iftrue": "0",
+      "iftrueVal": "19",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "${tempVars(\"mentname\")} bought a rocket pack from ${member.displayName} but lost control and landed in a zoo exhibit looking like a monkey.",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    }
+  ]
+}

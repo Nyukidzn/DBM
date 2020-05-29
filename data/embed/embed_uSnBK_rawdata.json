@@ -1,0 +1,446 @@
+{
+  "name": "embed",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "uSnBK",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${msg.guild.id}blacklist",
+      "defaultVal": "false",
+      "storage": "1",
+      "varName2": "blacklisted",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "blacklisted",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry ${member}, you're currently blacklisted from using this command!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "name": "Delete Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "What would you like the title to be?\n\nYou have 1 minute.",
+      "storage": "1",
+      "varName2": "msg1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${member.id}'",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "34",
+      "storage2": "1",
+      "varName2": "title",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "lmsg1",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "What do you want the description to be?\n\nYou have 2 minutes.",
+      "storage": "1",
+      "varName2": "msg2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${member.id}'",
+      "max": "1",
+      "time": "120000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "31",
+      "storage2": "1",
+      "varName2": "desc",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "lmsg2",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "What would you like the image to be?\n\nYou have 1 minute.\nPS: It has to be an image link.\nPPS: For no image type \"none\" (without quotes)",
+      "storage": "1",
+      "varName2": "msg3",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${member.id}'",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "17",
+      "iffalse": "3",
+      "iffalseVal": "28",
+      "storage2": "0",
+      "varName2": "image",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "lmsg3",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "What would you like the channel to be?\n\nYou have 1 minute.\nPS: If you mention it you will have to start over",
+      "storage": "1",
+      "varName2": "msg4",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${member.id}'",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "25",
+      "storage2": "1",
+      "varName2": "channelname",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "lmsg4",
+      "name": "Store Member Info"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "What would you like the color to be?\n\nYou can use \"RANDOM\" or a Hex Color Code",
+      "storage": "1",
+      "varName2": "msg5",
+      "name": "Send Message"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "filter": "content.length > 0 && author.id === '${member.id}'",
+      "max": "1",
+      "time": "60000",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "22",
+      "storage2": "1",
+      "varName2": "color",
+      "name": "Await Response Call Action"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "6",
+      "storage": "1",
+      "varName2": "lmsg5",
+      "name": "Store Member Info"
+    },
+    {
+      "info": "1",
+      "find": "${tempVars(\"channelname\")}",
+      "storage": "1",
+      "varName": "channel",
+      "name": "Find Channel"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg3",
+      "comparison": "1",
+      "value": "\"none\"",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "3",
+      "name": "Check Variable"
+    },
+    {
+      "title": "${tempVars(\"title\")}",
+      "author": "",
+      "color": "${tempVars(\"color\")}",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "count": "4",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "title": "${tempVars(\"title\")}",
+      "author": "",
+      "color": "${tempVars(\"color\")}",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "${tempVars(\"lmsg3\")}",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "embed",
+      "name": "Create Embed Message"
+    },
+    {
+      "count": "1",
+      "name": "Skip Actions"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "message": "${tempVars(\"desc\")}",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "embed",
+      "channel": "5",
+      "varName2": "channel",
+      "name": "Send Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg1",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg1",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg2",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg2",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg3",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg3",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg4",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg4",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg5",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg5",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Hey, ${member} you waited too long and the command timed out.\nPlease try again, this message self destructs in 30 seconds.",
+      "storage": "1",
+      "varName2": "timedout",
+      "name": "Send Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg1",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "msg1",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg1",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg2",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "msg2",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg2",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg3",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "msg3",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg3",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg4",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "msg4",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg4",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "msg5",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "storage": "1",
+      "varName": "msg5",
+      "name": "Delete Message"
+    },
+    {
+      "storage": "1",
+      "varName": "lmsg5",
+      "name": "Delete Message"
+    },
+    {
+      "time": "30",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "timedout",
+      "name": "Delete Message"
+    }
+  ],
+  "comType": "0"
+}

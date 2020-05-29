@@ -1,0 +1,284 @@
+{
+  "name": "supportsetup",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "NYMuy",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "permission": "MANAGE_GUILD",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Permissions"
+    },
+    {
+      "title": "",
+      "author": "",
+      "color": "#36393F",
+      "timestamp": "true",
+      "url": "",
+      "authorIcon": "",
+      "imageUrl": "",
+      "thumbUrl": "",
+      "storage": "1",
+      "varName": "error",
+      "name": "Create Embed Message"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "message": ":x: You are not authorized!\n\nYou need **MANAGE_GUILD** permission to setup the ticket system.",
+      "name": "Set Embed Description"
+    },
+    {
+      "storage": "1",
+      "varName": "error",
+      "channel": "0",
+      "varName2": "",
+      "name": "Send Embed Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();\n\nif (!me.permissions.has('MANAGE_ROLES')) {\n    msg.channel.send('The bot is missing the required **MANAGE_ROLES** permission.');\n} else if (!me.permissions.has('MANAGE_CHANNELS')) {\n    msg.channel.send('The bot is missing the required **MANAGE_CHANNELS** permission.');\n} else {\n    Actions.callNextAction(cache);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "if (!DiscordJS.version >= '11.5.1') {\n    msg.channel.send('Please update Discord.js to at least 11.5.1!');\n} else {\n    Actions.callNextAction(cache);\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "info": "1",
+      "find": "Support Team",
+      "storage": "1",
+      "varName": "supportTeamRole",
+      "name": "Find Role"
+    },
+    {
+      "storage": "1",
+      "varName": "supportTeamRole",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "roleName": "Support Team",
+      "hoist": "true",
+      "mentionable": "false",
+      "color": "#DB7093",
+      "position": "",
+      "storage": "2",
+      "varName": "supportTeamRole",
+      "name": "Create Role"
+    },
+    {
+      "info": "1",
+      "find": "Tickets",
+      "storage": "1",
+      "varName": "ticketsCategory",
+      "name": "Find Category"
+    },
+    {
+      "storage": "1",
+      "varName": "ticketsCategory",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channelName": "Tickets",
+      "position": "",
+      "storage": "2",
+      "varName": "ticketsCategory",
+      "name": "Create Category Channel"
+    },
+    {
+      "info": "1",
+      "find": "On Hold Tickets",
+      "storage": "1",
+      "varName": "hold_category",
+      "name": "Find Category"
+    },
+    {
+      "storage": "1",
+      "varName": "hold_category",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channelName": "On Hold Tickets",
+      "position": "",
+      "storage": "2",
+      "varName": "holdCategory",
+      "name": "Create Category Channel"
+    },
+    {
+      "time": "500",
+      "measurement": "0",
+      "name": "Wait"
+    },
+    {
+      "channel": "4",
+      "varName": "ticketsCategory",
+      "info": "1",
+      "storage": "2",
+      "varName2": "ticketsCategoryID",
+      "name": "Store Channel Info"
+    },
+    {
+      "channel": "4",
+      "varName": "holdCategory",
+      "info": "1",
+      "storage": "2",
+      "varName2": "holdCategoryID",
+      "name": "Store Channel Info"
+    },
+    {
+      "storage": "2",
+      "varName": "ticketsCategoryID",
+      "name": "Save Variable"
+    },
+    {
+      "storage": "2",
+      "varName": "holdCategoryID",
+      "name": "Save Variable"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "storage": "1",
+      "varName2": "bot_mem",
+      "name": "Get Bot as Member"
+    },
+    {
+      "info": "1",
+      "find": "ticket-logs",
+      "storage": "1",
+      "varName": "ticketLogsChannel",
+      "name": "Find Channel"
+    },
+    {
+      "storage": "1",
+      "varName": "ticketLogsChannel",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "3",
+      "iftrueVal": "10",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channelName": "ticket-logs",
+      "topic": "",
+      "position": "",
+      "storage": "2",
+      "varName": "ticketLogsChannel",
+      "name": "Create Text Channel"
+    },
+    {
+      "storage": "4",
+      "varName": "ticketLogsChannel",
+      "channelType": "0",
+      "toChange": "5",
+      "newState": "${serverVars(\"ticketsCategoryID\")}",
+      "name": "Edit Channel"
+    },
+    {
+      "storage": "4",
+      "varName": "ticketLogsChannel",
+      "permission": "READ_MESSAGES",
+      "state": "1",
+      "name": "Set Channel Permissions"
+    },
+    {
+      "storage": "4",
+      "varName": "ticketLogsChannel",
+      "permission": "SEND_MESSAGES",
+      "state": "1",
+      "name": "Set Channel Permissions"
+    },
+    {
+      "storage": "4",
+      "varName": "ticketsCategory",
+      "permission": "READ_MESSAGES",
+      "state": "1",
+      "name": "Set Channel Permissions"
+    },
+    {
+      "storage": "4",
+      "varName": "holdCategory",
+      "permission": "READ_MESSAGES",
+      "state": "1",
+      "name": "Set Channel Permissions"
+    },
+    {
+      "channel": "4",
+      "varName": "ticketsCategory",
+      "role": "4",
+      "varName2": "supportTeamRole",
+      "permission": "READ_MESSAGES",
+      "state": "0",
+      "name": "Set Role Channel Perms"
+    },
+    {
+      "channel": "4",
+      "varName": "holdCategory",
+      "role": "4",
+      "varName2": "supportTeamRole",
+      "permission": "READ_MESSAGES",
+      "state": "0",
+      "name": "Set Role Channel Perms"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "The ticket system has been setup and is ready to go!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "The ticket system has already been setup in this server!",
+      "storage": "0",
+      "varName2": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    }
+  ],
+  "comType": "0",
+  "_aliases": []
+}

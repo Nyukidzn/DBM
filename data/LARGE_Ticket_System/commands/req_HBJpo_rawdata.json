@@ -1,0 +1,101 @@
+{
+  "name": "req",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "HBJpo",
+  "actions": [
+    {
+      "behavior": "1",
+      "interpretation": "1",
+      "code": "if (me.permissions.has('MANAGE_MESSAGES')) msg.delete();\nif (serverVars(\"ticketsCategoryID\") != null) {\nActions.callNextAction(cache);\n} else {\nmsg.channel.send('The ticket system is not setup in this server.');\n}\n",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "name",
+      "name": "Store Channel Info"
+    },
+    {
+      "storage": "1",
+      "varName": "name",
+      "comparison": "5",
+      "value": "'ticket-'",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "**Error:** You're not in a ticket channel.",
+      "storage": "1",
+      "varName2": "msg1",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "10",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "msg1",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${tempVars(\"name\")}_creator",
+      "comparison": "1",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "4",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "**Error:** You have to be the ticket creator to request the log file!",
+      "storage": "1",
+      "varName2": "1error",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Send Message"
+    },
+    {
+      "time": "10",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "1error",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "file": "./logs/${tempVars(\"name\")}.txt",
+      "message": "Here is the log file from your ticket.",
+      "name": "Send File"
+    }
+  ],
+  "comType": "0"
+}

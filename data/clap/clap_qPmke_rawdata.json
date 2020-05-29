@@ -1,0 +1,87 @@
+{
+  "name": "clap",
+  "permissions": "NONE",
+  "restriction": "1",
+  "_id": "qPmke",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "dataName": "${msg.guild.id}blacklist",
+      "defaultVal": "false",
+      "storage": "1",
+      "varName2": "blacklisted",
+      "name": "Store Member Data"
+    },
+    {
+      "storage": "1",
+      "varName": "blacklisted",
+      "comparison": "1",
+      "value": "true",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Sorry ${member}, you're currently blacklisted from using this command!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Variable"
+    },
+    {
+      "storage": "3",
+      "varName": "commands",
+      "name": "Save Variable"
+    },
+    {
+      "condition": "0",
+      "comparison": "2",
+      "value": "1",
+      "iftrue": "3",
+      "iftrueVal": "2",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Parameters"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Please type at least two words to use this command!",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "info": "1",
+      "infoIndex": "1",
+      "storage": "1",
+      "varName": "text",
+      "name": "Store Command Params"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "const text = tempVars(\"text\");\n\ntext1 = text.replace(/\\n/g, \" \");\n\nclap = text1.split(' ').join(\"👏\");\n\nif(clap.length < 1000){\n   msg.channel.send(clap);\n}else{\n    msg.channel.send('That message is to long! After the conversion you had ' + (clap.length) +'/1000 characters')\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    }
+  ]
+}
